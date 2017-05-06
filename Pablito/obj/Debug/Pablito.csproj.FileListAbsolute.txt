@@ -1,0 +1,75 @@
+C:\Users\IrvingO\Source\Repos\Testing.Evolve.Build\Pablito\Pablito\bin\Debug\Pablito.exe.config
+C:\Users\IrvingO\Source\Repos\Testing.Evolve.Build\Pablito\Pablito\bin\Debug\Pablito.exe
+C:\Users\IrvingO\Source\Repos\Testing.Evolve.Build\Pablito\Pablito\bin\Debug\Pablito.pdb
+C:\Users\IrvingO\Source\Repos\Testing.Evolve.Build\Pablito\Pablito\bin\Debug\ClosedXML.dll
+C:\Users\IrvingO\Source\Repos\Testing.Evolve.Build\Pablito\Pablito\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\IrvingO\Source\Repos\Testing.Evolve.Build\Pablito\Pablito\bin\Debug\ClosedXML.xml
+C:\Users\IrvingO\Source\Repos\Testing.Evolve.Build\Pablito\Pablito\obj\Debug\Pablito.csprojResolveAssemblyReference.cache
+C:\Users\IrvingO\Source\Repos\Testing.Evolve.Build\Pablito\Pablito\obj\Debug\Pablito.Properties.Resources.resources
+C:\Users\IrvingO\Source\Repos\Testing.Evolve.Build\Pablito\Pablito\obj\Debug\Pablito.csproj.GenerateResource.Cache
+C:\Users\IrvingO\Source\Repos\Testing.Evolve.Build\Pablito\Pablito\obj\Debug\Pablito.exe
+C:\Users\IrvingO\Source\Repos\Testing.Evolve.Build\Pablito\Pablito\obj\Debug\Pablito.pdb
+C:\Users\IrvingO\Source\Repos\Testing.Evolve.Build\Pablito\Pablito\obj\Debug\Pablito.Ultron.resources
+C:\Users\Ynphy\Documents\Visual Studio 2015\Projects\Pablito\Pablito\bin\Debug\Pablito.exe.config
+C:\Users\Ynphy\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.exe
+C:\Users\Ynphy\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.pdb
+C:\Users\Ynphy\Documents\Visual Studio 2015\Projects\Pablito\Pablito\bin\Debug\Pablito.exe
+C:\Users\Ynphy\Documents\Visual Studio 2015\Projects\Pablito\Pablito\bin\Debug\Pablito.pdb
+C:\Users\Ynphy\Documents\Visual Studio 2015\Projects\Pablito\Pablito\bin\Debug\ClosedXML.dll
+C:\Users\Ynphy\Documents\Visual Studio 2015\Projects\Pablito\Pablito\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Ynphy\Documents\Visual Studio 2015\Projects\Pablito\Pablito\bin\Debug\ClosedXML.xml
+C:\Users\Ynphy\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.csprojResolveAssemblyReference.cache
+C:\Users\Ynphy\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.Ultron.resources
+C:\Users\Ynphy\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.Properties.Resources.resources
+C:\Users\Ynphy\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.csproj.GenerateResource.Cache
+E:\SampleProjects\Pablito\Pablito\bin\Debug\Pablito.exe.config
+E:\SampleProjects\Pablito\Pablito\obj\Debug\Pablito.exe
+E:\SampleProjects\Pablito\Pablito\obj\Debug\Pablito.pdb
+E:\SampleProjects\Pablito\Pablito\bin\Debug\Pablito.exe
+E:\SampleProjects\Pablito\Pablito\bin\Debug\Pablito.pdb
+E:\SampleProjects\Pablito\Pablito\bin\Debug\ClosedXML.dll
+E:\SampleProjects\Pablito\Pablito\bin\Debug\DocumentFormat.OpenXml.dll
+E:\SampleProjects\Pablito\Pablito\bin\Debug\ClosedXML.xml
+E:\SampleProjects\Pablito\Pablito\obj\Debug\Pablito.Ultron.resources
+E:\SampleProjects\Pablito\Pablito\obj\Debug\Pablito.Properties.Resources.resources
+E:\SampleProjects\Pablito\Pablito\obj\Debug\Pablito.csproj.GenerateResource.Cache
+E:\SampleProjects\Pablito\Pablito\obj\Debug\Pablito.Busqueda.resources
+E:\SampleProjects\Pablito\Pablito\obj\Debug\Pablito.Jarvis.resources
+E:\SampleProjects\Pablito\Pablito\obj\Debug\Pablito.CsvConverter.resources
+E:\SampleProjects\Pablito\Pablito\obj\Debug\Pablito.Cotizacion.resources
+E:\SampleProjects\Pablito\Pablito\obj\Debug\Pablito.csprojResolveAssemblyReference.cache
+E:\SampleProjects\Pablito\Pablito\obj\Debug\Pablito.Movimientos.resources
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\bin\Debug\Pablito.exe.config
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.exe
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.pdb
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\bin\Debug\Pablito.exe
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\bin\Debug\Pablito.pdb
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\bin\Debug\ClosedXML.dll
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\bin\Debug\ClosedXML.xml
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.csprojResolveAssemblyReference.cache
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.Busqueda.resources
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.Cotizacion.resources
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.CsvConverter.resources
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.Ultron.resources
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.Jarvis.resources
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.Movimientos.resources
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\Pablito.csproj.GenerateResource.Cache
+C:\Users\JP\Documents\Visual Studio 2015\Projects\Pablito\Pablito\obj\Debug\MARK0.Properties.Resources.resources
+E:\Projects\Pablito\Pablito\obj\Debug\Pablito.csprojResolveAssemblyReference.cache
+E:\Projects\Pablito\Pablito\obj\Debug\Pablito.Busqueda.resources
+E:\Projects\Pablito\Pablito\obj\Debug\Pablito.Cotizacion.resources
+E:\Projects\Pablito\Pablito\obj\Debug\Pablito.CsvConverter.resources
+E:\Projects\Pablito\Pablito\obj\Debug\Pablito.Ultron.resources
+E:\Projects\Pablito\Pablito\obj\Debug\Pablito.Jarvis.resources
+E:\Projects\Pablito\Pablito\obj\Debug\Pablito.Movimientos.resources
+E:\Projects\Pablito\Pablito\obj\Debug\MARK0.Properties.Resources.resources
+E:\Projects\Pablito\Pablito\obj\Debug\Pablito.csproj.GenerateResource.Cache
+E:\Projects\Pablito\Pablito\obj\Debug\Pablito.exe
+E:\Projects\Pablito\Pablito\obj\Debug\Pablito.pdb
+E:\Projects\Pablito\Pablito\bin\Debug\Pablito.exe.config
+E:\Projects\Pablito\Pablito\bin\Debug\Pablito.exe
+E:\Projects\Pablito\Pablito\bin\Debug\Pablito.pdb
+E:\Projects\Pablito\Pablito\bin\Debug\ClosedXML.dll
+E:\Projects\Pablito\Pablito\bin\Debug\DocumentFormat.OpenXml.dll
+E:\Projects\Pablito\Pablito\bin\Debug\ClosedXML.xml

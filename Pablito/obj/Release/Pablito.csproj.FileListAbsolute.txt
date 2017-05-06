@@ -1,0 +1,17 @@
+E:\SampleProjects\Pablito\Pablito\bin\Release\Pablito.exe.config
+E:\SampleProjects\Pablito\Pablito\bin\Release\Pablito.exe
+E:\SampleProjects\Pablito\Pablito\bin\Release\Pablito.pdb
+E:\SampleProjects\Pablito\Pablito\bin\Release\ClosedXML.dll
+E:\SampleProjects\Pablito\Pablito\bin\Release\DocumentFormat.OpenXml.dll
+E:\SampleProjects\Pablito\Pablito\bin\Release\ClosedXML.xml
+E:\SampleProjects\Pablito\Pablito\obj\Release\Pablito.Ultron.resources
+E:\SampleProjects\Pablito\Pablito\obj\Release\Pablito.Properties.Resources.resources
+E:\SampleProjects\Pablito\Pablito\obj\Release\Pablito.csproj.GenerateResource.Cache
+E:\SampleProjects\Pablito\Pablito\obj\Release\Pablito.exe
+E:\SampleProjects\Pablito\Pablito\obj\Release\Pablito.pdb
+E:\SampleProjects\Pablito\Pablito\obj\Release\Pablito.Busqueda.resources
+E:\SampleProjects\Pablito\Pablito\obj\Release\Pablito.CsvConverter.resources
+E:\SampleProjects\Pablito\Pablito\obj\Release\Pablito.Jarvis.resources
+E:\SampleProjects\Pablito\Pablito\obj\Release\Pablito.Cotizacion.resources
+E:\SampleProjects\Pablito\Pablito\obj\Release\Pablito.csprojResolveAssemblyReference.cache
+E:\SampleProjects\Pablito\Pablito\obj\Release\Pablito.Movimientos.resources
