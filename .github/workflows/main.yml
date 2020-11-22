@@ -1,6 +1,9 @@
-steps:
 name: ASP.NET CI
-on: [push]
+on:
+  push:
+    branches:
+      - master
+
 jobs:
   build:
     runs-on: windows-latest
