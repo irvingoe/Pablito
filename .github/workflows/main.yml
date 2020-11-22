@@ -16,4 +16,4 @@ jobs:
 
     - name: MSBuild
       working-directory: src
-      run: msbuild Pablito.csproj
+      run: msbuild Pablito.sln
