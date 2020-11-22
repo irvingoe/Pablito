@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using ClosedXML.Excel;
 using Pablito.Model;
 
@@ -27,7 +30,7 @@ namespace Pablito
                     //campo 1 = WClave
                     //campo 2 = Codigo Barras
                     //campo 3 = Nombre
-                    articulos.Add(new Articulo(campos[0], campos[1], campos[2])); 
+                    articulos.Add(new Articulo(campos[0], campos[1], campos[2]));
                 }
             }
             return articulos;
@@ -187,12 +190,13 @@ namespace Pablito
             return fuente.Select(q => q.CodigoBarras).ToList();
         }
 
-        public static string AbrirArchivo(string Extension)
+        public static string AbrirArchivo(string Extension, string descripcion = "")
         {
             System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             openFileDialog1.InitialDirectory = Environment.CurrentDirectory;
             //openFileDialog1.Filter = "Excel Files (*.xlsx)|*.xlsx";
             openFileDialog1.Filter = Extension;
+            openFileDialog1.Title = descripcion;
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 return openFileDialog1.FileName;
@@ -228,7 +232,7 @@ namespace Pablito
             var Hoja1 = ArchivoExcel.Worksheet(1);
             Hoja1.RowsUsed()
                 .Select(
-                    row => 
+                    row =>
                         string.Join("~"
                         , row.Cells(1, row.LastCellUsed(false).Address.ColumnNumber)
                             .Where(cell => filtroColumna.Split(',').ToList().Contains("" + cell.Address.ColumnNumber) && cell.Address.RowNumber >= FilaInicio)
@@ -242,8 +246,180 @@ namespace Pablito
                 }
             });
 
-            // Create a file to write to.
+            // Create a fileItem to write to.
             File.WriteAllLines(rutaCSV, buffer.ToString().Split('\n').ToArray(), Encoding.UTF8);
+        }
+
+        public static void TestMethod()
+        {
+            //string currentMonthFolder = "";
+            //using (FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog())
+            //{
+            //    folderBrowserDialog1.Description = "Selecciona la carpeta del mes deseado.";
+            //    if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            //    {
+            //        currentMonthFolder = folderBrowserDialog1.SelectedPath;
+            //    }
+            //}
+
+            List<VentasArticulo> itemList;
+            VentasArticulo item;
+            List<ArticuloInventario> inventarioList = new List<ArticuloInventario>();
+            ArticuloInventario inventarioItem;
+            string mesFile = AbrirArchivo("Excel Files (*.xlsx)|*.xlsx", "");
+            //            string currentArticulo = Path.GetFileNameWithoutExtension(mesFile);
+            string currentFolder = Path.GetDirectoryName(mesFile);
+            var itemFiles = Directory.GetFiles(currentFolder, "*.xlsx", SearchOption.TopDirectoryOnly);
+            var existenciasFiles = Directory.GetFiles(currentFolder + "\\EXISTENCIAS", "*.xlsx", SearchOption.TopDirectoryOnly);
+            using (var excelWorkbook = new XLWorkbook(mesFile))
+            {
+                //var nonEmptyDataRows = excelWorkbook.Worksheet(1).RowsUsed();
+                var nonEmptyDataRows = excelWorkbook.Worksheet(1).RangeUsed().RowsUsed().Skip(1);
+
+                foreach (var dataRow in nonEmptyDataRows)
+                {
+                    inventarioItem = new ArticuloInventario();
+                    string idArticulo = dataRow.Cell("C").Value.ToString();
+                    string nombreArticulo = dataRow.Cell("D").Value.ToString();
+                    int cantidadRegular = Convert.ToInt32(dataRow.Cell("E").Value);
+                    inventarioItem.IdArticulo = idArticulo;
+                    inventarioItem.NombreArticulo = nombreArticulo;
+                    inventarioItem.CantidadRegular = cantidadRegular;
+                    inventarioList.Add(inventarioItem);
+                }
+            }
+            foreach (var fileItem in itemFiles)
+            {
+                if (fileItem == mesFile) continue;
+                string currentArticulo = Path.GetFileNameWithoutExtension(fileItem);
+                itemList = new List<VentasArticulo>();
+                using (var excelWorkbook = new XLWorkbook(fileItem))
+                {
+                    //var nonEmptyDataRows = excelWorkbook.Worksheet(1).RowsUsed();
+                    var nonEmptyDataRows = excelWorkbook.Worksheet(1).RangeUsed().RowsUsed().Skip(1);
+                    foreach (var dataRow in nonEmptyDataRows)
+                    {
+                        string descripcionAlmacen = dataRow.Cell("L").Value.ToString();
+                        int idAlmacen = GetIdAlmacen(descripcionAlmacen);
+                        string idArticulo = dataRow.Cell("C").Value.ToString();
+                        int cantidadRegular = Convert.ToInt32(dataRow.Cell("E").Value);
+                        DateTime fecha = Convert.ToDateTime(dataRow.Cell("A").Value);
+                        item = new VentasArticulo(idAlmacen, idArticulo, cantidadRegular, fecha, descripcionAlmacen);
+                        itemList.Add(item);
+                    }
+                }
+                int mo = 0;
+                int c1 = 0;
+                int ae = 0;
+                int nt = 0;
+                int lp = 0;
+                int c2 = 0;
+                mo = itemList.Where(x => x.DescripcionAlmacen == "De La Cruz").Sum(x => x.CantidadRegular);
+                c1 = itemList.Where(x => x.DescripcionAlmacen == "Cemain").Sum(x => x.CantidadRegular);
+                ae = itemList.Where(x => x.DescripcionAlmacen == "Aeropuerto").Sum(x => x.CantidadRegular);
+                nt = itemList.Where(x => x.DescripcionAlmacen == "Nuevo Tampico").Sum(x => x.CantidadRegular);
+                lp = itemList.Where(x => x.DescripcionAlmacen == "LAGUNA DE LA PUERTA").Sum(x => x.CantidadRegular);
+                c2 = itemList.Where(x => x.DescripcionAlmacen == "CEMAIN 2").Sum(x => x.CantidadRegular);
+                var ultimaVenta = itemList.OrderByDescending(x => x.Fecha).FirstOrDefault();
+                var tempItem = inventarioList.FirstOrDefault(x => x.IdArticulo == currentArticulo);
+                tempItem.TotalVentasMO = mo;
+                tempItem.TotalVentasC1 = c1;
+                tempItem.TotalVentasAE = ae;
+                tempItem.TotalVentasNT = nt;
+                tempItem.TotalVentasLP = lp;
+                tempItem.TotalVentasC2 = c2;
+                tempItem.FechaUltimaVenta = ultimaVenta.Fecha.ToShortDateString();
+                tempItem.SucursalUltimaVenta = ultimaVenta.DescripcionAlmacen;
+
+            }
+            //end foreach archivos articulos
+
+            foreach (var fileExistencia in existenciasFiles)
+            {
+                using (var excelWorkbook = new XLWorkbook(fileExistencia))
+                {
+                    //var nonEmptyDataRows = excelWorkbook.Worksheet(1).RowsUsed();
+                    var nonEmptyDataRows = excelWorkbook.Worksheet(1).RangeUsed().RowsUsed().Skip(1);
+                    foreach (var dataRow in nonEmptyDataRows)
+                    {
+                        int idAlmacen = Convert.ToInt32(dataRow.Cell("D").Value);
+                        string idArticulo = dataRow.Cell("A").Value.ToString();
+                        int existencia = Convert.ToInt32(dataRow.Cell("C").Value);
+                        if (inventarioList.Select(x => x.IdArticulo).Contains(idArticulo))
+                        {
+                            var temp = inventarioList.FirstOrDefault(x => x.IdArticulo == idArticulo);
+                            switch (idAlmacen)
+                            {
+                                case 2:
+                                    temp.TotalExistenciasMO = existencia;
+                                    break;
+                                case 3:
+                                    temp.TotalExistenciasC1 = existencia;
+                                    break;
+                                case 5:
+                                    temp.TotalExistenciasAE = existencia;
+                                    break;
+                                case 6:
+                                    temp.TotalExistenciasNT = existencia;
+                                    break;
+                                case 8:
+                                    temp.TotalExistenciasLP = existencia;
+                                    break;
+                                case 9:
+                                    temp.TotalExistenciasC2 = existencia;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+            //end foreach archivos existencias
+
+            Console.WriteLine();
+            string archivoResultado = currentFolder + "\\RESULTADO\\FORMAT-" + Path.GetFileName(mesFile);
+            Directory.CreateDirectory(Path.GetDirectoryName(archivoResultado));
+            var wb = new XLWorkbook();
+            var ws = wb.Worksheets.Add(Path.GetFileNameWithoutExtension(mesFile));
+
+            string[] titulos = { "ARTICULO", "NOMBRE", "CANT", "V. MO", "V. C1", "V. AE", "V. NT", "V. LP", "V. C2", "EX. MO", "EX. C1", "EX. AE", "EX. NT", "EX. LP", "EX. C2", "FECHA ULTIMA VENTA", "SUCURSAL ULTIMA VENTA" };
+            for (int i = 0; i < titulos.Length; i++)
+            {
+                ws.Cell(1, (i + 1)).Value = titulos[i];
+            }
+
+            ws.Cell(2, 1).InsertData(inventarioList.AsEnumerable());
+            ws.Columns().AdjustToContents();
+            wb.SaveAs(archivoResultado);
+        }
+
+        public static int GetIdAlmacen (string nombreAlmacen)
+        {
+            int IdAlmacen = 0;
+            switch (nombreAlmacen)
+            {
+                case "De La Cruz":
+                    IdAlmacen = 2;
+                    break;
+                case "Cemain":
+                    IdAlmacen = 3;
+                    break;
+                case "Aeropuerto":
+                    IdAlmacen = 5;
+                    break;
+                case "Nuevo Tampico":
+                    IdAlmacen = 6;
+                    break;
+                case "LAGUNA DE LA PUERTA":
+                    IdAlmacen = 8;
+                    break;
+                case "CEMAIN 2":
+                    IdAlmacen = 9;
+                    break;
+
+            }
+            return IdAlmacen;
         }
 
     }

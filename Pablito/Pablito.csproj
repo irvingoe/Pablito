@@ -109,8 +109,10 @@
     <Compile Include="Jarvis.Designer.cs">
       <DependentUpon>Jarvis.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ArticuloInventario.cs" />
     <Compile Include="Model\Marzam.cs" />
     <Compile Include="Model\Movimiento.cs" />
+    <Compile Include="Model\VentasArticulo.cs" />
     <Compile Include="Movimientos.cs">
       <SubType>Form</SubType>
     </Compile>

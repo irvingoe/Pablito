@@ -145,5 +145,10 @@ namespace Pablito
         {
 
         }
+
+        private void betaMenuItem_Click(object sender, EventArgs e)
+        {
+            Util.TestMethod();
+        }
     }
 }
